@@ -3,7 +3,10 @@
 let arr: string[] = ["one", "two", "three"];
 let arr2: (string | number)[] = ["conal", "22", "mango"];
 
-// tuple
+// "readonly" keyword can prevent arrays from being changed.
+const names: readonly string[] = [];
+
+// tuple a typed array with a pre-defined length and types for each index.
 let myTuple: [string, number, boolean] = ["name", 22, true];
 
 // Objects
@@ -21,10 +24,15 @@ interface Guitarist {
   albums: (string | number)[];
 }
 
-let evh: Guitarist = {
+interface ageGuitarist extends Guitarist {
+  age: number;
+}
+
+let evh: ageGuitarist = {
   name: "kasn",
   active: false,
   albums: [1982, 7627, "OU76C"],
+  age: 18,
 };
 
 // Enums

@@ -27,8 +27,12 @@ type mathFunc = (a: number, b: number) => number;
 let multi: mathFunc = (c, d) => c * d;
 multi(2, 3);
 
-// optional parameters
+// "void" can be used to indicate a function doesn't return any value.
+const showMsg = (msg: string): void => {
+  alert(msg);
+};
 
+// optional parameters
 const addAll = (a: number, b: number, c?: number): number => {
   if (typeof c !== "undefined") {
     return a + b + c;
@@ -56,3 +60,13 @@ total(1, 2, 3, 4);
 const createErr = (errMsg: string): never => {
   throw new Error(errMsg);
 };
+
+// Casting -overriding a type.
+// use "as"
+let x: unknown = "hello";
+console.log((x as string).length);
+// use <>
+console.log((<string>x).length);
+// Force casting
+let s = "hi";
+console.log((x as unknown as string).length);
